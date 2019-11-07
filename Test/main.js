@@ -6,18 +6,23 @@ $(document).ready(function () {
 
   var leftArrowPress = false;
   var rightArrowPress = false;
+  var arrowPress = false;
   $(document).keydown(function (e) {
-    if (!leftArrowPress) {
+    if (!arrowPress) {
       if (e.keyCode === 37 || e.keyCode === 109) { //left arrow down
         slidePrev();
-        leftArrowPress = true;
+        arrowPress = true;
         setTimeout(function () {
-          leftArrowPress = false;
+          arrowPress = false;
+        }, 300);
+      } else if (e.keyCode === 39 || e.keyCode === 107) {
+        slideNext();
+        arrowPress = true;
+        setTimeout(function () {
+          arrowPress = false;
         }, 300);
       }
-    } else if (e.keyCode === 39 || e.keyCode === 107) {
-      slideNext();
-    }
+    } 
   });
 
   //test keydown events
