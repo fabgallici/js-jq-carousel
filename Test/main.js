@@ -1,13 +1,20 @@
 $(document).ready(function () {
 
-
   $(".next").click(slideNext);
 
   $(".prev").click(slidePrev);
 
+  var leftArrowPress = false;
+  var rightArrowPress = false;
   $(document).keydown(function (e) {
-    if (e.keyCode === 37 || e.keyCode === 109) {
-      slidePrev();
+    if (!leftArrowPress) {
+      if (e.keyCode === 37 || e.keyCode === 109) { //left arrow down
+        slidePrev();
+        leftArrowPress = true;
+        setTimeout(function () {
+          leftArrowPress = false;
+        }, 300);
+      }
     } else if (e.keyCode === 39 || e.keyCode === 107) {
       slideNext();
     }
@@ -65,3 +72,13 @@ $(document).ready(function () {
 
 
 });
+
+
+/* 
+$(document).keydown(function (e) {
+  if (e.keyCode === 37 || e.keyCode === 109) {
+    slidePrev();
+  } else if (e.keyCode === 39 || e.keyCode === 107) {
+    slideNext();
+  }
+}); */
