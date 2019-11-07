@@ -1,53 +1,53 @@
 $(document).ready(function () {
 
 
-  $(".next").click(prossimaslide);
+  $(".next").click(slideNext);
 
-  $(".prev").click(precedenteslide);
+  $(".prev").click(slidePrev);
 
 
 
 
   // funzioni
-  function prossimaslide() {
+  function slideNext() {
 
-    var posizioneimg = $(".slider-wrapper .images  img.active");
-    var posizionenav = $(".nav i.active");
+    var imgPos = $(".slider-wrapper .images  img.active");
+    var indicatorPos = $(".nav i.active");
 
-    posizioneimg.removeClass("active");
-    posizionenav.removeClass("active");
+    imgPos.removeClass("active");
+    indicatorPos.removeClass("active");
 
 
     // se siamo all'utima img dello slider, ritorna ad essere attiva la prima
-    if (posizioneimg.hasClass("last")) {
+    if (imgPos.hasClass("last")) {
       $(".slider-wrapper .images  img.first").addClass("active");
       $(".nav i.first").addClass("active");
     } else {
       //altrimenti passa semplicemente l'active alla prossima
-      posizioneimg.next("img").addClass("active");
-      posizionenav.next("i").addClass("active");
+      imgPos.next("img").addClass("active");
+      indicatorPos.next("i").addClass("active");
     }
 
 
   }
 
 
-  function precedenteslide() {
+  function slidePrev() {
 
-    var posizioneimg = $(".slider-wrapper .images  img.active");
-    var posizionenav = $(".nav i.active");
+    var imgPos = $(".slider-wrapper .images  img.active");
+    var indicatorPos = $(".nav i.active");
 
-    posizioneimg.removeClass("active");
-    posizionenav.removeClass("active");
+    imgPos.removeClass("active");
+    indicatorPos.removeClass("active");
 
     // se siamo alla prima img dello slider, ritorna ad essere attiva l'ultima
-    if (posizioneimg.hasClass("first")) {
+    if (imgPos.hasClass("first")) {
       $(".slider-wrapper .images  img.last").addClass("active");
       $(".nav i.last").addClass("active");
     } else {
       //altrimenti passa semplicemente l'active alla prossima
-      posizioneimg.prev("img").addClass("active");
-      posizionenav.prev("i").addClass("active");
+      imgPos.prev("img").addClass("active");
+      indicatorPos.prev("i").addClass("active");
     }
 
 
