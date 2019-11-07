@@ -4,28 +4,24 @@ $(document).ready(function () {
 
   $(".prev").click(slidePrev);
 
-  var leftArrowPress = false;
-  var rightArrowPress = false;
+  // slide show con arrow left o right, e tasti + - , delay scorrimento se tengo premuto tasto
   var arrowPress = false;
   $(document).keydown(function (e) {
     if (!arrowPress) {
       if (e.keyCode === 37 || e.keyCode === 109) { //left arrow down
         slidePrev();
-        arrowPress = true;
-        setTimeout(function () {
-          arrowPress = false;
-        }, 300);
       } else if (e.keyCode === 39 || e.keyCode === 107) {
-        slideNext();
-        arrowPress = true;
-        setTimeout(function () {
-          arrowPress = false;
-        }, 300);
+        slideNext();       
       }
+      arrowPress = true;
+      setTimeout(function () {
+        arrowPress = false;
+        // console.log('arrow timing');
+      }, 300);
     } 
   });
 
-  //test keydown events
+  //test keydown events debug
   $(document).keypress(function (e) {
     console.log(e.keyCode);
   });
@@ -52,7 +48,6 @@ $(document).ready(function () {
 
 
   }
-
 
   function slidePrev() {
 
