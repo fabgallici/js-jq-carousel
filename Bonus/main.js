@@ -21,6 +21,15 @@ $(document).ready(function () {
     } 
   });
 
+  //indicator click change corresponding img to active
+  $('.nav i').click(function() {
+    var clickedInd = $(this).attr('data-ref');
+    $('.slider-wrapper .images  img').removeClass('active');
+    $('.nav i').removeClass('active');
+    $(this).addClass('active');
+    $('.slider-wrapper .images  img[data-ref=' + clickedInd + ']').addClass('active');
+  });
+
   //test keydown events debug
   $(document).keypress(function (e) {
     console.log(e.keyCode);
